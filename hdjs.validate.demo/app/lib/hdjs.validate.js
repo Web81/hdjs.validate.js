@@ -1,5 +1,5 @@
 /*
- * hdjs.validate.js 1.0
+ * hdjs.validate.js 1.1
  * Copyright (c) 2013 HaberdasheryJS, http://haberdasheryjs.com
  * hdjs.validate.js is open sourced under the MIT license.
  * Portions of validate.js are inspired by CodeIgniter.
@@ -16,27 +16,27 @@
 
 var defaults = {
     messages: {
-        required: 'The %s field is required.',
-        matches: 'The %s field does not match the expected value: %s.',
-        valid_email: 'The %s field must contain a valid email address.',
-        valid_emails: 'The %s field must contain all valid email addresses.',
-        min_length: 'The %s field must be at least %s characters in length.',
-        max_length: 'The %s field must not exceed %s characters in length.',
-        exact_length: 'The %s field must be exactly %s characters in length.',
-        greater_than: 'The %s field must contain a number greater than %s.',
-        less_than: 'The %s field must contain a number less than %s.',
-        alpha: 'The %s field must only contain alphabetical characters.',
-        alpha_numeric: 'The %s field must only contain alpha-numeric characters.',
-        alpha_dash: 'The %s field must only contain alpha-numeric characters, underscores, and dashes.',
-        numeric: 'The %s field must contain only numbers.',
-        integer: 'The %s field must contain an integer.',
-        decimal: 'The %s field must contain a decimal number.',
-        is_natural: 'The %s field must contain only positive numbers.',
-        is_natural_no_zero: 'The %s field must contain a number greater than zero.',
-        valid_ip: 'The %s field must contain a valid IP.',
-        valid_base64: 'The %s field must contain a base64 string.',
-        valid_credit_card: 'The %s field must contain a valid credit card number.',
-        valid_url: 'The %s field must contain a valid URL.'
+        required: L('required'),
+        matches: L('matches'),
+        valid_email: L('valid_email'),
+        valid_emails:L('valid_emails'),
+        min_length: L('min_length'),
+        max_length: L('max_length'),
+        exact_length: L('exact_length'),
+        greater_than: L('greater_than'),
+        less_than: L('less_than'),
+        alpha: L('alpha'),
+        alpha_numeric: L('alpha_numeric'),
+        alpha_dash: L('alpha_dash'),
+        numeric: L('numeric'),
+        integer: L('integer'),
+        decimal: L('decimal'),
+        is_natural: L('is_natural'),
+        is_natural_no_zero: L('is_natural_no_zero'),
+        valid_ip: L('valid_ip'),
+        valid_base64: L('valid_base64'),
+        valid_credit_card: L('valid_credit_card'),
+        valid_url: L('valid_url'),
     },
     callback: function(errors) {
 
@@ -203,10 +203,10 @@ FormValidator.prototype._validateField = function(field) {
                 message = 'An error has occurred with the ' + field.display + ' field.';
 
             if (source) {
-                message = source.replace('%s', field.display);
+                message = source.replace('%vd', field.display);
 
                 if (param) {
-                    message = message.replace('%s', param);
+                    message = message.replace('%vd', param);
                 }
             }
 
